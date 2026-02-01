@@ -24,7 +24,7 @@ public class MyPanel extends JPanel implements KeyListener {
         //初始化敌人坦克
         for (int i = 0; i < enemyTankSize; i++) {
             //创建一个敌人的坦克
-            EnemyTank enemyTank = new EnemyTank((100 * (i + 1)), 0);
+            EnemyTank enemyTank = new EnemyTank((100 * (i + 1)), (100 * i));
             //设置方向
             enemyTank.setDirect(2);
             //加入
@@ -43,7 +43,14 @@ public class MyPanel extends JPanel implements KeyListener {
         //画出敌人的坦克,遍历Vector
         for (int i = 0; i < enemyTanks.size(); i++) {
             //取出坦克
+//            EnemyTank t1 = enemyTanks.get(0);
+//            t1.setDirect(3); // 修改 t1 的方向
+//            drawTank(t1.getX(),t1.getY(),g,t1.getDirect(),1);
+            // 请问：enemyTanks 集合里存的那个坦克的方向变了吗？
             EnemyTank enemyTank = enemyTanks.get(i);
+            if (i == 2) {
+                drawTank(enemyTank.getX(),enemyTank.getY(),g,enemyTank.getDirect(),2);
+            }else
             drawTank(enemyTank.getX(),enemyTank.getY(),g,enemyTank.getDirect(),1);
         }
 
@@ -67,6 +74,9 @@ public class MyPanel extends JPanel implements KeyListener {
                 break;
             case 1://敌人的坦克
                 g.setColor(Color.YELLOW);
+                break;
+            case 2://敌人的坦克
+                g.setColor(Color.RED);
                 break;
         }
 
