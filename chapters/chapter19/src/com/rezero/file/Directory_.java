@@ -2,7 +2,7 @@ package com.rezero.file;
 
 import org.junit.Test;
 
-import java.io.File;
+import java.io.*;
 
 /**
  * @author Re-zero
@@ -61,4 +61,10 @@ public class Directory_ {
             }
         }
     }
+
+    //下面4个都是抽象类
+    //OutputStream
+    //InputStream
+    //Reader  //字符输入流
+    //Writer  //字符输出流
 }
