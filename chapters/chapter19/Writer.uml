@@ -3,38 +3,48 @@
   <ID>JAVA</ID>
   <OriginalElement>java.io.Writer</OriginalElement>
   <nodes>
-    <node x="204.00000000000003" y="95.0">java.lang.Appendable</node>
-    <node x="421.0" y="95.0">java.io.Closeable</node>
-    <node x="231.00000000000003" y="190.0">java.io.Writer</node>
-    <node x="394.0" y="0.0">java.lang.AutoCloseable</node>
-    <node x="0.0" y="95.0">java.io.Flushable</node>
+    <node x="435.0" y="95.0">java.lang.Appendable</node>
+    <node x="27.0" y="95.0">java.io.Closeable</node>
+    <node x="224.5" y="380.0">java.io.FileWriter</node>
+    <node x="251.5" y="190.0">java.io.Writer</node>
+    <node x="170.0" y="285.0">java.io.OutputStreamWriter</node>
+    <node x="0.0" y="0.0">java.lang.AutoCloseable</node>
+    <node x="231.0" y="95.0">java.io.Flushable</node>
   </nodes>
   <notes />
   <edges>
     <edge source="java.io.Writer" target="java.io.Closeable">
-      <point x="47.666666666666686" y="-22.5" />
-      <point x="350.16666666666674" y="165.0" />
-      <point x="513.0" y="165.0" />
-      <point x="0.0" y="22.5" />
-    </edge>
-    <edge source="java.io.Writer" target="java.io.Flushable">
       <point x="-47.66666666666663" y="-22.5" />
-      <point x="254.8333333333334" y="165.0" />
-      <point x="92.0" y="165.0" />
+      <point x="275.33333333333337" y="165.0" />
+      <point x="119.0" y="165.0" />
       <point x="0.0" y="22.5" />
     </edge>
     <edge source="java.io.Closeable" target="java.lang.AutoCloseable">
       <point x="0.0" y="-22.5" />
       <point x="0.0" y="22.5" />
     </edge>
+    <edge source="java.io.OutputStreamWriter" target="java.io.Writer">
+      <point x="0.0" y="-22.5" />
+      <point x="0.0" y="22.5" />
+    </edge>
     <edge source="java.io.Writer" target="java.lang.Appendable">
+      <point x="47.666666666666686" y="-22.5" />
+      <point x="370.6666666666667" y="165.0" />
+      <point x="533.5" y="165.0" />
+      <point x="0.0" y="22.5" />
+    </edge>
+    <edge source="java.io.FileWriter" target="java.io.OutputStreamWriter">
+      <point x="0.0" y="-22.5" />
+      <point x="0.0" y="22.5" />
+    </edge>
+    <edge source="java.io.Writer" target="java.io.Flushable">
       <point x="0.0" y="-22.5" />
       <point x="0.0" y="22.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="316.0" y="117.5" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="316.0" y="129.5" />
   <SelectedNodes>
-    <node>java.io.Writer</node>
+    <node>java.io.FileWriter</node>
   </SelectedNodes>
   <Categories />
   <SCOPE>All</SCOPE>
