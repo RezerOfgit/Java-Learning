@@ -18,7 +18,7 @@ public class API_ {
         final InetAddress host01 = InetAddress.getByName("DESKTOP-O4LV3FV");
         System.out.println("host01 = " + host01);//host01 = DESKTOP-O4LV3FV/192.168.71.105
 
-        //3. 根据域名返回 InetAddress对象，比如 www。baidu。com 对应
+        //3. 根据域名返回 InetAddress对象，比如 www.baidu.com 对应
         final InetAddress host02 = InetAddress.getByName("www.baidu.com");
         System.out.println("host02 = " + host02);//host02 = www.baidu.com/183.2.172.17
 
