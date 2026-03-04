@@ -8,7 +8,7 @@ import java.net.InetAddress;
 /**
  * @author Re-zero
  * @version 1.0
- * UDP接收端
+ * UDP接收端A
  */
 @SuppressWarnings({"all"})
 public class UDPReceiverA {
@@ -17,7 +17,7 @@ public class UDPReceiverA {
         final DatagramSocket socket = new DatagramSocket(9999);
 
         //2. 构建一个 DatagramPacket 对象，准备接收数据
-        //在前面讲解UDP 协议时，老师说过一个数据包最大 64k
+        //一个数据包最大 64k
         byte[] buf = new byte[1024];
         DatagramPacket packet = new DatagramPacket(buf, buf.length);
 

@@ -6,7 +6,7 @@ import java.net.*;
 /**
  * @author Re-zero
  * @version 1.0
- * UDP发送端
+ * UDP发送端B====>也可以接收数据
  */
 @SuppressWarnings({"all"})
 public class UDPSenderB {
@@ -32,7 +32,7 @@ public class UDPSenderB {
         //填充到 packet对象
         //提示：当有数据包发送到 本机的9999端口时, 就会接收到数据
         // 如果没有数据包发送到 本机的9999端口, 就会阻塞等待.
-        System.out.println("接收端A 等待接收数据...");
+        System.out.println("发送端B 等待接收数据...");
         socket.receive(packet);
 
         //(3) 可以把packet 进行拆包，取出数据，并显示.
