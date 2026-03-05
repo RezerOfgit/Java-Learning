@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.lang.Class</OriginalElement>
+  <nodes>
+    <node x="0.0" y="95.0">java.lang.reflect.GenericDeclaration</node>
+    <node x="327.0" y="95.0">java.lang.reflect.Type</node>
+    <node x="708.0" y="95.0">java.lang.Object</node>
+    <node x="320.50000000000006" y="190.0">java.lang.Class</node>
+    <node x="463.0" y="95.0">java.io.Serializable</node>
+    <node x="95.25" y="0.0">java.lang.reflect.AnnotatedElement</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.lang.reflect.GenericDeclaration" target="java.lang.reflect.AnnotatedElement">
+      <point x="0.0" y="-22.5" />
+      <point x="153.0" y="70.0" />
+      <point x="165.0" y="70.0" />
+      <point x="-69.75" y="22.5" />
+    </edge>
+    <edge source="java.lang.Class" target="java.lang.reflect.GenericDeclaration">
+      <point x="-51.60000000000008" y="-22.5" />
+      <point x="333.4" y="170.0" />
+      <point x="153.0" y="170.0" />
+      <point x="0.0" y="22.5" />
+    </edge>
+    <edge source="java.lang.Class" target="java.lang.reflect.Type">
+      <point x="-5.6843418860808015E-14" y="-22.5" />
+      <point x="0.0" y="22.5" />
+    </edge>
+    <edge source="java.lang.Class" target="java.io.Serializable">
+      <point x="25.799999999999955" y="-22.5" />
+      <point x="410.8" y="160.0" />
+      <point x="575.5" y="160.0" />
+      <point x="0.0" y="22.5" />
+    </edge>
+    <edge source="java.lang.Class" target="java.lang.reflect.AnnotatedElement">
+      <point x="-25.800000000000068" y="-22.5" />
+      <point x="359.2" y="160.0" />
+      <point x="316.5" y="160.0" />
+      <point x="316.5" y="70.0" />
+      <point x="304.5" y="70.0" />
+      <point x="69.75" y="22.5" />
+    </edge>
+    <edge source="java.lang.Class" target="java.lang.Object">
+      <point x="51.599999999999966" y="-22.5" />
+      <point x="436.6" y="170.0" />
+      <point x="779.5" y="170.0" />
+      <point x="0.0" y="22.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="344.0" y="117.5" />
+  <SelectedNodes>
+    <node>java.lang.Object</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
