@@ -1,4 +1,4 @@
-package com.rezero.class_;
+package com.rezero.classload_;
 
 import java.lang.reflect.Method;
 import java.util.Scanner;
