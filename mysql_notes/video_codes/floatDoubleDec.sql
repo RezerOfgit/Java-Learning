@@ -1,0 +1,19 @@
+-- 演示decimal类型、float、double使用
+
+-- 创建表
+CREATE TABLE t05 (num1 float,
+num2 double,
+num3 decimal(30, 20));
+
+-- 添加数据
+INSERT INTO t05 VALUES (88.12345678912345, 88.12345678912345,88.12345678912345);
+SELECT * FROM t05;
+
+-- decimal 可以存放很大的数
+CREATE TABLE t06(num decimal(65));
+INSERT INTO t06 VALUES (12345623456789045678456783852852456783456);
+SELECT * FROM t06;
+
+CREATE TABLE t07(num bigint unsigned);
+INSERT INTO t07 VALUES (123456385256);
+SELECT * FROM t07;
