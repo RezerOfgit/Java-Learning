@@ -13,6 +13,7 @@ INSERT INTO `student` (id, name, chinese, english, math) VALUES (4, '关羽', 88
 INSERT INTO `student` (id, name, chinese, english, math) VALUES (5, '赵云', 82, 84, 67);
 INSERT INTO `student` (id, name, chinese, english, math) VALUES (6, '欧阳锋', 55,85,45);
 INSERT INTO `student` (id, name, chinese, english, math) VALUES (7, '黄蓉', 75,65,30) ;
+INSERT INTO `student` (id, name, chinese, english, math) VALUES (8, '黄二狗', 95,45,60) ;
 
 -- DELETE FROM `student`;
 
