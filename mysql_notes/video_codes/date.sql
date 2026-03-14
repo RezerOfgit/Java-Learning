@@ -54,6 +54,20 @@ SELECT DATEDIFF(DATE_ADD('1990-11-11', INTERVAL 80 YEAR), NOW())
 
 SELECT DATEDIFF('10:10:10', '11:11:11') FROM DUAL ;
 
+-- YEAR|MONTH|DAY| DATE (datetime)
+SELECT YEAR (NOW()) FROM DUAL ;
+SELECT MONTH (NOW()) FROM DUAL ;
+SELECT DAY (NOW()) FROM DUAL ;
+SELECT MONTH ('2013-11-11') FROM DUAL ;
+
+-- unix_timestamp()：返回的是1970-1-1到现在的秒数
+SELECT UNIX_TIMESTAMP() FROM DUAL ; 
+-- FROM_UNIXTIME()：可以把一个unix_timestamp 秒数[时间截]，转成指定格式的日期
+-- %Y-%m-%d格式是规定好的，表示年月日
+-- 意义：在开发中，可以存放一个整数，然后表示时间，通过FROM_UNIXTIME转换
+
+SELECT FROM_UNIXTIME(1773458549, '%Y-%m-%d') FROM DUAL ;
+SELECT FROM_UNIXTIME(1773458549, '%Y-%m-%d %H:%i:%s') FROM DUAL ;
 
 
 
