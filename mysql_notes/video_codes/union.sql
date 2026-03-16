@@ -1,0 +1,24 @@
+-- 合并查询
+SELECT ENAME , SAL , JOB 
+		FROM EMP E 
+		WHERE SAL > 2500;
+SELECT ENAME , SAL , JOB 
+		FROM EMP E 
+		WHERE JOB = 'manager';
+
+-- union all就是将两个查询结果合并，不会去重
+SELECT ENAME , SAL , JOB 
+		FROM EMP E 
+		WHERE SAL > 2500
+UNION ALL 
+SELECT ENAME , SAL , JOB 
+		FROM EMP E 
+		WHERE JOB = 'manager';
+-- UNION 就是将两个查询结果合并，会去重
+SELECT ENAME , SAL , JOB 
+		FROM EMP E 
+		WHERE SAL > 2500
+UNION  
+SELECT ENAME , SAL , JOB 
+		FROM EMP E 
+		WHERE JOB = 'manager';
