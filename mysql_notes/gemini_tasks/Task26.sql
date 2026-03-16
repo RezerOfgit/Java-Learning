@@ -13,9 +13,8 @@ SELECT GOODS_NAME , CATEGORY_ID ,PRICE
 		FROM goods
 		WHERE CATEGORY_ID = 1;
 
-
-
 -- 观察与思考：运行之后，看看 RTX 5090（它既大于500元，又是1号分类）在结果里出现了几次？
 -- 如果把 UNION 换成 UNION ALL，结果又有什么不同？
--- 
+-- union all就是将两个查询结果合并，不会去重
+-- UNION 就是将两个查询结果合并，会去重
 -- 考点：将两个查询结果集合并（去重 vs 不去重）。
