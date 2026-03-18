@@ -1,0 +1,12 @@
+-- 基于 Task45 创建的 v_emp_admin 视图：
+-- 
+-- 如果外包行政人员执行了：UPDATE v_emp_admin SET phone = '13800000000' 
+-- WHERE emp_id = 1;
+-- 请问底层的 employee 基表里，1号员工的手机号会改变吗？
+-- 会改变, 对视图的修改也会影响到基表.
+-- （思考题）如果在创建视图的 SELECT 语句中使用了 GROUP BY 或者 SUM() 这样的聚合函数，
+-- 这个视图还能进行 INSERT 或 UPDATE 操作吗？
+-- 通常情况下，不能。
+-- 如果一个视图的定义中包含了 GROUP BY、聚合函数（如 SUM(), COUNT(), AVG()）、
+-- DISTINCT、UNION 等，这个视图通常被称为非可更新视图。无法对这样的视图执行 INSERT、UPDATE 
+-- 或 DELETE 操作。
