@@ -1,0 +1,13 @@
+-- 无论是 InnoDB 还是 MyISAM，在硬盘上都有对应的物理文件。请用文字描述或简答：
+-- 
+-- 如果我用 InnoDB 创建了一个表叫 t_order，在 MySQL 的 data 目录下，
+-- 通常会生成哪些后缀名的文件？它们分别存什么？
+-- 对于 t_order 表本身，最直接相关的文件是 t_order.sdi（结构）和 t_order.ibd（数据和索引）。
+-- 而 ibdata1 和 ib_logfile* 是 InnoDB 存储引擎正常运行所必需的全局共享文件。
+CREATE TABLE t_order ( id int);
+-- 
+-- 如果我用 MyISAM 创建了一个表叫 t_log，在 data 目录下又会生成哪些后缀名的文件？
+-- 用 MyISAM 引擎创建 t_log 表，在 data 目录下通常生成 3 个核心文件：
+-- t_log.frm (或 .sdi)：存表结构定义。
+-- t_log.MYD：存表数据（MYData）。
+-- t_log.MYI：存表索引（MYIndex）。
