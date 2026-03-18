@@ -1,0 +1,9 @@
+-- 在 MySQL 的 mysql.user 系统表中，用户名和 Host 共同决定了一个账号的唯一性。
+-- 假设系统里同时存在两个同名账号：
+-- 账号A：'tester'@'localhost' （密码：111）
+-- 账号B：'tester'@'%' （密码：222）
+-- 问题： 如果你在运行 MySQL 服务器的那台物理机上，打开 CMD 直接输入 mysql -u tester -p 登录，
+-- MySQL 会让你输入哪个密码（匹配哪个账号）？请简要说明 MySQL 匹配 Host 的规则。
+-- MySQL 会让你输入密码 111（匹配账号A：'tester'@'localhost'）。
+-- MySQL 在验证用户身份时，遵循 “最具体匹配优先”（Best Match）原则：
+-- 精确匹配优先于模糊匹配,通配符 % 是最后的备选.
