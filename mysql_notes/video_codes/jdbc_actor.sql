@@ -6,3 +6,9 @@ CREATE TABLE actor(
 		phone varchar(12));
 
 SELECT * FROM actor;
+
+-- 增加2条记录，用于测试ResultSet
+INSERT INTO ACTOR 
+		VALUES (NULL ,'jack', '男', '1990-11-11', '112');
+INSERT INTO ACTOR 
+		VALUES (NULL ,'刘德华', '男', '1988-11-11', '110');
