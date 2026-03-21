@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.sql.PreparedStatement</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">java.sql.Wrapper</node>
+    <node x="95.25" y="95.0">java.sql.Statement</node>
+    <node x="40.75" y="190.0">java.sql.PreparedStatement</node>
+    <node x="177.0" y="0.0">java.lang.AutoCloseable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.sql.Statement" target="java.sql.Wrapper">
+      <point x="-46.0" y="-22.5" />
+      <point x="141.25" y="70.0" />
+      <point x="78.5" y="70.0" />
+      <point x="0.0" y="22.5" />
+    </edge>
+    <edge source="java.sql.PreparedStatement" target="java.sql.Statement">
+      <point x="0.0" y="-22.5" />
+      <point x="0.0" y="22.5" />
+    </edge>
+    <edge source="java.sql.Statement" target="java.lang.AutoCloseable">
+      <point x="46.0" y="-22.5" />
+      <point x="233.25" y="70.0" />
+      <point x="296.0" y="70.0" />
+      <point x="0.0" y="22.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="207.5" y="117.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
