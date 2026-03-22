@@ -27,9 +27,9 @@ public class JDBCUtils {
             user = properties.getProperty("user");
             password = properties.getProperty("password");
             url = properties.getProperty("url");
-            Class.forName(driver);
-            driver = properties.getProperty("driver");
 
+            driver = properties.getProperty("driver");
+            Class.forName(driver);
         } catch (IOException | ClassNotFoundException e) {
             //在实际开发中，我们可以这样处理
             //1. 将编译异常转成运行异常
@@ -59,17 +59,18 @@ public class JDBCUtils {
     public static void close(ResultSet set, Statement statement, Connection connection) {
         //判断是否为null
         try {
-            if (set != null) {
-                set.close();
-            }
-            if (statement != null) {
-                statement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
+            if (set != null) set.close();
         } catch (SQLException e) {
-            //将编译异常转成运行异常抛出
+            throw new RuntimeException(e);
+        }
+        try {
+            if (statement != null) statement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            if (connection != null) connection.close();
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

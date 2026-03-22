@@ -23,8 +23,9 @@ public class Task09_JDBCUtils {
             user = properties.getProperty("user");
             password = properties.getProperty("password");
             url = properties.getProperty("url");
-            Class.forName(driver);
+
             driver = properties.getProperty("driver");
+            Class.forName(driver);
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -40,15 +41,17 @@ public class Task09_JDBCUtils {
 
     public static void close(ResultSet set, Statement statement, Connection connection) {
         try {
-            if (set != null) {
-                set.close();
-            }
-            if (statement != null) {
-                statement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
+            if (set != null) set.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            if (statement != null) statement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            if (connection != null) connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
