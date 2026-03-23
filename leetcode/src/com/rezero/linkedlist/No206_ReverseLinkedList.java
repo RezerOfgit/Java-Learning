@@ -2,6 +2,8 @@ package com.rezero.linkedlist;
 
 import com.rezero.common.ListNode;
 
+import java.util.List;
+
 /**
  * @author Re-zero
  * @version 1.0
@@ -10,26 +12,15 @@ import com.rezero.common.ListNode;
 public class No206_ReverseLinkedList {
 
     public ListNode reverseList(ListNode head) {
-        ListNode prev = null; // 上一个节点，初始为 null
-        ListNode curr = head; // 当前正在处理的节点
+        ListNode prev = null;
+        ListNode curr = head;
 
-        // 当 curr 不为空时，说明还没走到链表尽头
         while (curr != null) {
-            // 1. 记住原来的下一个节点，防止迷路
             ListNode nextTemp = curr.next;
-
-            // 2. 关键动作：转身！当前节点指向前一个节点
             curr.next = prev;
-
-            // 3. prev 指针往前走一步，来到 curr 的位置
             prev = curr;
-
-            // 4. curr 指针往前走一步，来到 nextTemp 的位置
             curr = nextTemp;
         }
-
-        // 循环结束时，curr 变成了 null，此时 prev 正好停在原链表的最后一个节点，
-        // 也就是新链表的头节点。
         return prev;
     }
 
