@@ -2,11 +2,11 @@ package com.rezero.linkedlist;
 
 import com.rezero.common.ListNode;
 
+import java.util.LinkedList;
+
 /**
  * @author Re-zero
  * @version 1.0
- * 题目：21. 合并两个有序链表
- * 难度：简单
  * 描述：将两个升序链表合并为一个新的 升序 链表并返回。
  * 新链表是通过拼接给定的两个链表的所有节点组成的。
  * 示例：输入：l1 = [1,2,4], l2 = [1,3,4]  输出：[1,1,2,3,4,4]
@@ -17,10 +17,7 @@ public class No21_MergeTwoLists {
         ListNode dummy = new ListNode(-1);
         ListNode curr = dummy;
 
-        // 3. 循环条件：两个链表都还有节点
         while (list1 != null && list2 != null) {
-
-            // 正常的一对 if...else
             if (list1.val <= list2.val) {
                 curr.next = list1;
                 list1 = list1.next;
@@ -28,19 +25,15 @@ public class No21_MergeTwoLists {
                 curr.next = list2;
                 list2 = list2.next;
             }
-
-            // curr 往前走，这句放在 if...else 的外面，while 的里面
             curr = curr.next;
         }
 
-        // 4. 扫尾工作：一定要在 while 循环【结束之后】（外面）
         if (list1 != null) {
             curr.next = list1;
         } else {
             curr.next = list2;
         }
 
-        // 5. 返回头节点：同样在 while 循环外面
         return dummy.next;
     }
 
