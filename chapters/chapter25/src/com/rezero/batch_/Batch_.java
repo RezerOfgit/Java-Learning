@@ -50,6 +50,7 @@ public class Batch_ {
                 //3. 当elementData 满后,就按照1.5 扩容
                 //4. 当添加到指定的值后，就executeBatch
                 //5. 批量处理会减少我们发送sql 语句的网络开销，而且减少编译次数，因此效率提高
+                //下面的代码是mysql 5.x
                 public void addBatch() throws SQLException {
                     synchronized(this.checkClosed().getConnectionMutex()) {
                     if (this.batchedArgs == null) {
