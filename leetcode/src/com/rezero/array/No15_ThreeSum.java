@@ -1,4 +1,4 @@
-package com.rezero.hashmap;
+package com.rezero.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;

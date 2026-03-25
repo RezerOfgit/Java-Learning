@@ -2,10 +2,7 @@ package com.rezero.jdbc;
 
 import java.sql.*;
 import com.mysql.cj.jdbc.Driver;
-import jdk.internal.util.xml.BasicXmlPropertiesProvider;
-
 import java.util.Properties;
-import java.util.logging.Logger;
 
 /**
  * @author Re-zero
