@@ -3,6 +3,10 @@ CREATE TABLE product(
 		`name` varchar(32),
 		price decimal(8, 2));
 SELECT * FROM product;
+INSERT into product values(200, '手机', 3000);
+INSERT into product values(300, '电脑', 5000);
+INSERT into product values(400, '鼠标', 90);
+
 
 CREATE TABLE account (
 		id int,

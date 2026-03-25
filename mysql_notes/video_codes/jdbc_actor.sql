@@ -33,7 +33,7 @@ CREATE TABLE admin2(
 SELECT COUNT(*) FROM admin2;
 DROP TABLE admin2;
 
-
+SELECT * FROM GOODS G ;
 
 
 
