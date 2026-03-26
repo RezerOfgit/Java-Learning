@@ -29,12 +29,8 @@ public class No26_RemoveDuplicates {
                 i++;
                 // 2. 把快指针发现的新数字(nums[j]) 赋值给 nums[i]
                 nums[i] = nums[j];
-                // 请在这里写出这两行代码：
-
             }
         }
-
-        // 题目要求返回新数组的长度。
         // 因为索引是从 0 开始的，所以长度是 索引 + 1
         return i + 1;
     }
