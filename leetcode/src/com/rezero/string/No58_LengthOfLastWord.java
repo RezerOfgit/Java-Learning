@@ -9,6 +9,25 @@ package com.rezero.string;
  */
 public class No58_LengthOfLastWord {
 
+    public int lengthOfLastWord_3(String s) {
+        int length = 0;
+        // 从字符串末尾开始往前走
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) != ' ') {
+                length++; // 遇到字母，长度 + 1
+            } else if (length > 0) {
+                // 如果遇到了空格，并且之前已经数过字母了，说明最后一个单词结束了！
+                return length;
+            }
+        }
+        return length; // 防止字符串里只有单词没有空格的情况（比如 "Hello"）
+    }
+
+    public int lengthOfLastWord_2(String s) {
+        String[] split = s.split("\\ +");
+        return split[split.length - 1].length();
+    }
+
     //1. 解法一 库函数
     public int lengthOfLastWord(String s) {
         //使用 trim() 方法去除字符串首尾的所有空格
@@ -48,10 +67,14 @@ public class No58_LengthOfLastWord {
 
     public static void main(String[] args) {
         No58_LengthOfLastWord solution = new No58_LengthOfLastWord();
-        String s = "   fly me   to   the moon  ";
+        String s = "hello";
         int a = solution.lengthOfLastWord(s);
         int b = solution.TwoPointers(s);
+        int c = solution.lengthOfLastWord_2(s);
+        int d = solution.lengthOfLastWord_3(s);
         System.out.println(a);
         System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
     }
 }

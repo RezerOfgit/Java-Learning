@@ -33,8 +33,6 @@ public class No20_ValidParentheses {
                 char top = stack.pop();
 
                 // 5. 核心判断：如果现在的右括号 c 和刚弹出来的左括号 top 不匹配，就返回 false
-                // 【请在这里写下你的判断逻辑，比如 if (c == ')' && top != '(') return false; ...
-                // 把三种括号都判断完】
                 if (c == ')' && top != '(') return false;
                 if (c == ']' && top != '[') return false;
                 if (c == '}' && top != '{') return false;
