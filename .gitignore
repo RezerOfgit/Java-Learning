@@ -2,3 +2,7 @@ out/
 .idea/
 *.class
 *.iml
+# javaweb图片视频音频忽略上传
+audio/
+image/
+video/
