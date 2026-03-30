@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格标签</title>
+    <style>
+        table{
+            width: 600px;
+            border-collapse: collapse; /* 相当于 cellspacing="0" + 边框合并 */
+        }
+        th,td{
+            text-align: center; /*单元格内容居中展示*/
+            border: 1px solid black;/*相当于 border="1px"*/
+            /*用于定义边框的样式和颜色*/
+            padding: 8px;/*相当于 cellpadding*/
+            /*是 CSS 中的内边距设置，表示元素内容与边框之间的空间。*/
+        }
+    </style>
+</head>
+<body>
+<!--<table border="1px" cellspacing="0" width="600px">该方法已经过时-->
+<table>
+    <tr>
+        <th>序号</th>
+        <th>品牌logo</th>
+        <th>品牌名称</th>
+        <th>企业名称</th>
+    <tr>
+    <tr>
+        <td>001</td>
+        <td>
+            <img src="../../image/huawei.jpg" alt="" width="100px">
+        </td>
+        <td>华为</td>
+        <td>华为技术有限公司</td>
+    </tr>
+    <tr>
+        <td>002</td>
+        <td>
+            <img src="../../image/alibaba.jpg" alt="" width="100px">
+        </td>
+        <td>阿里</td>
+        <td>阿里巴巴集团控股有限公司</td>
+    </tr>
+</table>
+</body>
+</html>
