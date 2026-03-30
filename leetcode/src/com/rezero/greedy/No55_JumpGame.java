@@ -1,4 +1,4 @@
-package com.rezero;
+package com.rezero.greedy;
 
 /**
  * @author Re-zero
