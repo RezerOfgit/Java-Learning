@@ -22,7 +22,6 @@ public class No104_MaximumDepthOfBinaryTree {
         int rightDepth = maxDepth(root.right);
 
         // 3. 老板做总结：比较左右孩子的深度，取最大值，再加上自己的 1 层
-        // 提示：Java 中求两个数的最大值可以使用 Math.max(a, b)
         return Math.max(leftDepth, rightDepth) + 1;
     }
 }
