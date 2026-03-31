@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON 序列化与反序列化</title>
+</head>
+<body>
+<script>
+    let serverNode = {ip:"192.168.1.10",status:1,ports:[80,443,8080]};
+    let str = JSON.stringify(serverNode);
+    console.log(str);
+
+    let mockResponse = '{"code":200,"msg":"success","data":{"total":50}}';
+    let obj = JSON.parse(mockResponse);
+    console.log(obj.data.total);
+
+</script>
+</body>
+</html>
