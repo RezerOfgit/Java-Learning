@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-函数</title>
+</head>
+<body>
+<script>
+    // 定义函数-方式1
+    // function add(a, b) {
+    //     return a + b;
+    // }
+
+    // 定义函数-方式2
+    var add = function (a, b) {
+        return a + b;
+    };
+
+
+    //函数调用
+    var result = add(10, 20);
+    // var result = add(10, "A");
+    alert(result);
+//     如果a 没有被定义（没有声明，也没有赋值），调用 `add(10, a)` 时，
+// JavaScript 引擎会查找变量 `a`，发现不存在，于是抛出 `ReferenceError:
+    // a is not defined`**，脚本停止执行，因此 `alert(result)` 不会运行，也就没有输出。
+// 只有在 `a` 已经被定义（例如 `var a = 5;`）的情况下，`add(10, a)`
+    // 才能正常计算并返回 `15`。
+    // 如果 `a = "A"`（已定义且为字符串），调用 `add(10, a)` 即 `add(10, "A")`，
+    // JavaScript 的 `+` 运算符会将数字 `10` 转换为字符串，然后进行**字符串拼接**，
+    // 结果为 `"10A"`。因此 `result` 的值为 `"10A"`，`alert(result)` 会弹出一个
+    // 显示 `"10A"` 的对话框。
+    // **总结**：输出结果是字符串 `"10A"`。
+
+</script>
+</body>
+</html>

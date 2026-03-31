@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/api/admin/login" method="post">
+    账号：<input type="text" name="username" id="username" class="user-input">
+    密码：<input type="password" name="password" id="password" class="pwd-input">
+    <button type="submit">登录</button>
+</form>
+【问题】：这段代码在与 Java 后端对接时，存在两个致命 Bug，会导致后端完全拿不到数据，
+且极度不安全。请用你的后端视角指出这两个 Bug 的根本原因，并给出正确的修改方案。
+（直接文字回答即可）
+添加 method="post" 保证安全且符合后端预期。
+为两个输入框分别添加 name="username" 和 name="password"，让后端能通过参数名获取值。
+</body>
+</html>
