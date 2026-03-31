@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>业务逻辑函数封装</title>
+</head>
+<body>
+<script>
+    // 方法1:
+    // function calculateCloudCost(cpuCores, days) {
+    //     return days * (10 + cpuCores * 15);
+    // }
+    //
+    // var result = calculateCloudCost(8, 30);
+    // console.log(result);
+
+    //方法2:
+    const calculateCloudCost = (cpuCores, days) => (10 + 15 * cpuCores) * days;
+    const result = calculateCloudCost(8, 30);
+    console.log(result);
+</script>
+
+
+</body>
+</html>

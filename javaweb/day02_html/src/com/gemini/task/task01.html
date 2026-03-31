@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弱类型踩坑与严格等于测试</title>
+</head>
+<body>
+<script>
+    {
+        let serverStatus = 200;
+        let apiResponse = "200";
+        console.log(serverStatus == apiResponse);//true
+        console.log(serverStatus === apiResponse);//false
+    }
+    // 为什么后端强烈建议在 JS 中一律使用 === 进行条件判断？
+    // 在 JavaScript 中，强烈建议使用 ===（严格相等）而非 ==（宽松相等），
+    // 主要是因为 == 会进行隐式类型转换，导致许多反直觉的结果，增加代码的不可预测性和 Bug 风险。
+</script>
+</body>
+</html>
