@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-对象-String</title>
+</head>
+<body>
+<script>
+    //创建字符串对象
+    // var str = new String("Hello JS");
+    var str = "  Hello JS   ";
+    console.log(str);
+
+    //length
+    console.log(str.length)
+
+    //charAt 返回在指定位置的字符
+    console.log(str.charAt(1));
+
+    //indexOf 检索字符串
+    console.log(str.indexOf("ll"));
+
+    //trim 去除字符串两边的空格, 中间的不去
+    var s = str.trim();
+    console.log(s);
+
+    //substring(start,end) --- 开始索引, 结束索引 (含头不含尾)
+    console.log(s.substring(0, 5));
+
+</script>
+</body>
+</html>
