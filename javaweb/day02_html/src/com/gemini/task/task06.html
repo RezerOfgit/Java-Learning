@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定与数据组装实战</title>
+</head>
+<body>
+<input type="text" id="dbName" placeholder="输入数据库名">
+<button id="btnDeploy">一键部署</button>
+
+</body>
+<script>
+    const btn = document.getElementById("btnDeploy");
+    btn.onclick = function () {
+        const dbName = document.getElementById("dbName").value;
+
+        const data = {
+            database: dbName,
+            action: "deploy"
+        };
+
+        const jsonStr = JSON.stringify(data);
+        console.log(jsonStr);
+    };
+</script>
+
+
+</html>

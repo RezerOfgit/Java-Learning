@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM 元素获取与值操作</title>
+</head>
+<body>
+<input type="text" id="ipAddress" value="127.0.0.1"> <br>
+<span id="statusText">离线</span>
+
+</body>
+<script>
+    const addr = document.getElementById("ipAddress");
+    addr.value = "192.168.1.100";
+
+    const tagName = document.getElementById("statusText");
+    tagName.innerHTML = "<b style='color:green'>在线</b>";
+    // tagName.innerText = "<b style='color:green'>在线</b>";
+//     innerText：设置或返回元素的纯文本内容，不会解析 HTML 标签。
+//     所有标签都会被当作普通文本显示。
+//
+// innerHTML：设置或返回元素的HTML 内容，会解析其中的 HTML 标签，并渲染出对应的 DOM 结构。
+
+
+</script>
+</html>
