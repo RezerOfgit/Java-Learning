@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声明式渲染与双向绑定</title>
+    <script src="../../rezero/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>当前微服务名称:{{ serviceName }}</h1>
+    <input type="text" v-model="serviceName" placeholder="请输入微服务名称">
+</div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            serviceName: "User-Center"
+        }
+    });
+</script>
+</html>

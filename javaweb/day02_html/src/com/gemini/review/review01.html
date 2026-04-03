@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM与事件</title>
+</head>
+<body>
+【场景】：你想在点击“提交”按钮时，获取用户在输入框里填写的服务器 IP。你的代码如下：
+
+JavaScript
+// 1. 获取输入框里的值
+let serverIp = document.getElementById("ipInput").value;
+// 2. 绑定点击事件
+document.getElementById("submitBtn").onclick = function() {
+// 3. 发送给后端
+console.log("准备发送给后端的IP是: " + serverIp);
+};
+【致命 Bug】：无论用户在页面上输入什么，点击按钮后，控制台打印出来的永远是空字符串
+（或者是输入框的初始默认值），后端根本拿不到用户的最新输入。
+【提问】：请用后端严谨的逻辑思维分析，为什么会发生这种现象？应该如何修改？
+
+这个问题本质上是变量获取时机错误。在页面加载时，let serverIp = ... 只执行了一次，
+获取的是输入框的初始值（通常是空字符串）。之后无论用户在输入框中输入什么，serverIp
+变量的值都不会自动更新。当点击按钮时，事件处理函数中使用的仍然是那个旧的初始值。
+
+document.getElementById("submitBtn").onclick = function() {
+let serverIp = document.getElementById("ipInput").value; // 每次点击时重新获取
+console.log("准备发送给后端的IP是: " + serverIp);
+};
+
+</body>
+</html>
