@@ -1,4 +1,4 @@
-package com.rezero;
+package com.rezero.array;
 
 /**
  * @author Re-zero
