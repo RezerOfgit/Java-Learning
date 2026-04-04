@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Axios 发送表单数据 (POST 请求)</title>
+    <script src="../../js/axios-0.18.0.js"></script>
+    <script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="user-info">
+        <h6>用户姓名:{{ user.name }}</h6>
+        <p>联系邮箱: {{ user.email }}</p>
+    </div>
+
+    <div class="post-area">
+        <input type="text" v-model="postTitle" placeholder="请输入文章标题"/>
+        <button @click="submitPost">发布文章</button>
+        <p v-if="postResult">{{ postResult }}</p>
+    </div>
+
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            user: {},
+            postTitle: '',
+            postResult: ''
+        },
+        mounted() {
+            axios.get("https://jsonplaceholder.typicode.com/users/1")
+                .then(result => {
+                    this.user = result.data;
+                })
+                .catch(error => {
+                    console.log("请求失败" + error);
+                    this.user = {name: "加载失败", email: "请检查网络"};
+                });
+        },
+        methods: {
+            submitPost() {
+                if (!this.postTitle.trim()) {
+                    alert("请填写文章标题");
+                    return;
+                }
+
+                const postData = {
+                    title: this.postTitle,
+                    body: "文章内容(示例内容)",
+                    userId: 1
+                };
+
+                axios.post("https://jsonplaceholder.typicode.com/posts",postData)
+                    .then(response => {
+                        console.log("发布成功, 服务器返回", response.data);
+                        this.postTitle = '';
+                        setTimeout(() => {
+                            this.postResult = '';
+                        }, 3000);
+                    })
+                    .catch(error => {
+                        console.error("发布失败", error);
+                        this.postResult = "发布失败，请查看控制台错误信息";
+                    });
+            }
+        },
+    });
+</script>
+</html>
