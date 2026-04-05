@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由跳转实战</title>
+</head>
+<body>
+【具体要求】：
+
+打开 src/router/index.js（这是路由的总调度中心）。
+
+配置两个路由规则：
+
+路径 /element 对应 ElementView 组件。
+
+路径 /emp 对应 EmpView 组件。
+
+打开 src/App.vue，在最上方写两个导航链接：
+
+<router-link to="/element">去 Element 演示页</router-link>
+
+<router-link to="/emp">去员工管理页</router-link>
+
+在链接下方，必须加上路由出口标签：<router-view></router-view>（这是未来被替换的坑位）。
+
+运行项目，点击链接，体验不刷新页面的极速跳转！
+</body>
+</html>
