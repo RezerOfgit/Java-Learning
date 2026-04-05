@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据绑定的本质</title>
+</head>
+<body>
+前端页面有一个搜索框：<input type="text" v-model="searchKeyword">。
+用户在里面输入了“Java开发”。
+提问：作为后端，请用一句话解释，v-model 这个指令在这个过程中起到了什么极其关键的作用？（提示：它连接了哪两个东西？）
+
+v-model 实现了输入框的输入值（用户界面）与 Vue 实例中 searchKeyword 数据属性
+（JavaScript 数据）之间的双向数据绑定，确保用户输入的任何字符都能实时同步到后端可获取的变量中。
+</body>
+</html>
