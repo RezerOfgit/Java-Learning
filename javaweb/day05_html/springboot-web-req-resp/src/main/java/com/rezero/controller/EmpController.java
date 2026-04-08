@@ -5,9 +5,12 @@ import com.rezero.pojo.Result;
 import com.rezero.service.EmpService;
 import com.rezero.service.impl.EmpServiceA;
 import com.utils.XmlParserUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,7 +19,13 @@ import java.util.List;
  */
 @RestController
 public class EmpController {
-    private EmpService empService = new EmpServiceA();
+
+//    @Qualifier("empServiceA")
+//    @Autowired //运行时,需要从IOC容器中获取该类型对象,赋值给该变量
+//    private EmpService empService;
+
+    @Resource(name = "empServiceB")
+    private EmpService empService;
 
     @RequestMapping("/listEmp")//mounted(){axios.get('/listEmp').then(res=>{
     public Result list() {

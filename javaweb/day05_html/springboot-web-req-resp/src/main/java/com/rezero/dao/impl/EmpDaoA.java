@@ -3,6 +3,7 @@ package com.rezero.dao.impl;
 import com.rezero.dao.EmpDao;
 import com.rezero.pojo.Emp;
 import com.utils.XmlParserUtils;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -10,6 +11,10 @@ import java.util.List;
  * @author Re-zero
  * @version 1.0
  */
+//@Component //将当前类交给IOC容器管理，成为IOC容器中的bean
+@Repository //默认是类名
+//@Repository(value = "daoA")
+//@Repository("daoA")
 public class EmpDaoA implements EmpDao {
 
     @Override

@@ -4,6 +4,7 @@ import com.rezero.dao.EmpDao;
 import com.rezero.pojo.Emp;
 import com.rezero.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +14,9 @@ import java.util.List;
  * @version 1.0
  */
 //@Component //将当前类交给IOC容器管理，成为IOC容器中的bean
+//@Primary //优先
 @Service
-public class EmpServiceA implements EmpService {
+public class EmpServiceB implements EmpService {
     @Autowired //运行时,需要从IOC容器中获取该类型对象,赋值给该变量
     private EmpDao empDao;
 
@@ -28,9 +30,9 @@ public class EmpServiceA implements EmpService {
             //处理 gender 1: 男, 2: 女
             String gender = emp.getGender();
             if ("1".equals(gender)) {
-                emp.setGender("男");
+                emp.setGender("男man11");
             } else if ("2".equals(gender)) {
-                emp.setGender("女");
+                emp.setGender("女woman22");
             }
 
             //处理job - 1: 讲师, 2: 班主任, 3: 就业指导
