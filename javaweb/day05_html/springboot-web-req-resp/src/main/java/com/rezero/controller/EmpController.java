@@ -2,6 +2,8 @@ package com.rezero.controller;
 
 import com.rezero.pojo.Emp;
 import com.rezero.pojo.Result;
+import com.rezero.service.EmpService;
+import com.rezero.service.impl.EmpServiceA;
 import com.utils.XmlParserUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +16,19 @@ import java.util.List;
  */
 @RestController
 public class EmpController {
+    private EmpService empService = new EmpServiceA();
 
     @RequestMapping("/listEmp")//mounted(){axios.get('/listEmp').then(res=>{
+    public Result list() {
+
+        //1. 调用service, 获取数据
+        List<Emp> empList = empService.listEmp();
+
+        //2. 组装数据并返回
+        return Result.success(empList);
+    }
+
+    /*@RequestMapping("/listEmp")//mounted(){axios.get('/listEmp').then(res=>{
     public Result list() {
         //1. 加载并解析emp.xml
         String file = this.getClass().getClassLoader().getResource("emp.xml").getFile();
@@ -45,5 +58,5 @@ public class EmpController {
 
         //3. 响应数据
         return Result.success(empList);
-    }
+    }*/
 }
