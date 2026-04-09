@@ -3,6 +3,11 @@ package com.lab.dto;
 import lombok.Data;
 import java.io.Serializable;
 
+/**
+ * @author Re-zero
+ * @version 1.0
+ * 统一响应结果封装类
+ */
 @Data
 public class R<T> implements Serializable {
     private static final long serialVersionUID = 1L;

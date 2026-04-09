@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author Re-zero
  * @version 1.0
+ * 测试接口，用来验证 Spring MVC 的路由功能和全局异常拦截是否生效
  */
 @RestController // 告诉 Spring：这是一个接收 Web 请求的前台接待员，并且返回 JSON 数据
 @RequestMapping("/test") // 给这个接待员分配一个工位路径

@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 /**
  * @author Re-zero
  * @version 1.0
- * 自定义通用业务异常
+ * 全局异常处理器
  */
 @Slf4j
 @RestControllerAdvice
