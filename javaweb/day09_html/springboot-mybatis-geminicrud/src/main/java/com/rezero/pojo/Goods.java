@@ -17,4 +17,5 @@ public class Goods {
     private Integer quantity;
     private LocalDateTime stockTime;
     private String category;
+    private Integer categoryId;
 }

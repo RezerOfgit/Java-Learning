@@ -80,6 +80,7 @@ class SpringbootMybatisCrudApplicationTests {
     @Test
     public void testDeleteByIds() {
         List<Integer> ids = Arrays.asList(16, 17, 18);
+        empMapper.deleteByIds(ids);
     }
 
 }

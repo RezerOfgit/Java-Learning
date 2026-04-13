@@ -3,6 +3,8 @@ package com.rezero.mapper;
 import com.rezero.pojo.Goods;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 /**
  * @author Re-zero
  * @version 1.0
@@ -33,4 +35,8 @@ public interface GoodsMapper {
     //根据ID查询
     @Select("SELECT * FROM GOODS WHERE id = #{id}")
     public Goods getById(Integer id);
+
+    public List<Goods> searchGoods(Goods condition);
+
+    public void deleteGoodsByIds(List<Integer> ids);
 }

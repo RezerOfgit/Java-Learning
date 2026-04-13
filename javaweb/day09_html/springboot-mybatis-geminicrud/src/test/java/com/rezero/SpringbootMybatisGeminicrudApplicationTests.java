@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootTest
 class SpringbootMybatisGeminicrudApplicationTests {
@@ -20,7 +22,7 @@ class SpringbootMybatisGeminicrudApplicationTests {
         goods.setName("外套");
         goods.setPrice(399.99);
         goods.setQuantity(200);
-        goods.setStockTime(LocalDateTime.of(2025, 11,11,11,11, 11));
+        goods.setStockTime(LocalDateTime.of(2025, 11, 11, 11, 11, 11));
         goods.setCategory("衣服");
 
         goodsMapper.insert(goods);
@@ -44,6 +46,22 @@ class SpringbootMybatisGeminicrudApplicationTests {
     public void testGetById() {
         Goods goods = goodsMapper.getById(6);
         System.out.println(goods);
+    }
+
+    @Test
+    public void searchGoods() {
+        Goods condition = new Goods();
+        condition.setName("鼠");
+        condition.setCategoryId(100);
+
+        List<Goods> goodsList = goodsMapper.searchGoods(condition);
+        System.out.println(goodsList);
+    }
+
+    @Test
+    public void deleteGoodsByIds() {
+        List<Integer> ids = Arrays.asList(4, 5, 6);
+        goodsMapper.deleteGoodsByIds(ids);
     }
 
 }
