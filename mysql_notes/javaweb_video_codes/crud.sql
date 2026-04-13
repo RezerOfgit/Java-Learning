@@ -75,6 +75,11 @@ SELECT * FROM EMP
 		AND GENDER = 1 AND ENTRYDATE BETWEEN '2010-01-01' AND '2020-01-01'
 		ORDER BY UPDATE_TIME DESC ;
 
+SELECT id, username, password, name, gender, image, job, entrydate, dept_id, create_time, update_time FROM EMP E ;
+
+-- 批量删除员工
+DELETE FROM EMP WHERE id IN (16,17,18);
+
 
 
 

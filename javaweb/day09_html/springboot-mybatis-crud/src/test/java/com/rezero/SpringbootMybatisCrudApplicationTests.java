@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
@@ -50,18 +51,14 @@ class SpringbootMybatisCrudApplicationTests {
         //构造员工对象
         Emp emp = new Emp();
         emp.setId(17);
-        emp.setUsername("Tom11");
-        emp.setName("汤姆12");
-        emp.setImage("1.jpg");
+        emp.setUsername("Tom2026");
+        emp.setName("汤姆11");
+        emp.setImage("11.jpg");
         emp.setGender((short)1);
-        emp.setJob((short)1);
-        emp.setEntrydate(LocalDate.of(2000, 12, 10));
-        emp.setCreateTime(LocalDateTime.now());
-        emp.setUpdateTime(LocalDateTime.now());
-        emp.setDeptId(1);
 
         //执行更新员工信息操作
-        empMapper.update(emp);
+//        empMapper.update(emp);
+        empMapper.update2(emp);
     }
 
     //根据ID查询员工
@@ -74,8 +71,15 @@ class SpringbootMybatisCrudApplicationTests {
     //根据条件查询员工
     @Test
     public void testList() {
-        List<Emp> empList = empMapper.list("张", (short) 1, LocalDate.of(2010, 1, 1), LocalDate.of(2020, 1, 1));
+//        List<Emp> empList = empMapper.list("张", (short) 1, LocalDate.of(2010, 1, 1), LocalDate.of(2020, 1, 1));
+        List<Emp> empList = empMapper.list(null,null ,null , null);
         System.out.println(empList);
+    }
+
+    //批量删除员工 (16,17,18)
+    @Test
+    public void testDeleteByIds() {
+        List<Integer> ids = Arrays.asList(16, 17, 18);
     }
 
 }

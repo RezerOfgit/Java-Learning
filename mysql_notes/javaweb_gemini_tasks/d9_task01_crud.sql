@@ -1,5 +1,3 @@
-SELECT * FROM GOODS G ;
-
 CREATE TABLE	 `goods` (
 	`id` int PRIMARY KEY AUTO_INCREMENT comment '商品 ID',
 	`name` varchar(50) NOT NULL comment '商品名称',
@@ -9,7 +7,7 @@ CREATE TABLE	 `goods` (
 	`category` varchar(20) comment '商品分类'
 );
 
-DROP TABLE GOODS ;
+SELECT * FROM GOODS G ;
 
 INSERT INTO `goods` VALUES 
 		(1, '机械键盘', 299.00, 100, now(), '数码'),
@@ -19,6 +17,13 @@ INSERT INTO `goods` VALUES
 		(5, '空调', 666.00, 500, now(), '家电'),
 		(6, '办公桌', 599.00, 20, now(), '家具');
 
+DELETE FROM GOODS WHERE id = 8;
+
+UPDATE GOODS SET QUANTITY = QUANTITY - 1
+		WHERE ID = 6;
+
+SELECT * FROM GOODS 
+		WHERE id = 6;
 
 
 

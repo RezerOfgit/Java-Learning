@@ -3,9 +3,7 @@ package com.rezero.mapper;
 import com.rezero.pojo.Emp;
 import org.apache.ibatis.annotations.*;
 
-import javax.annotation.Resource;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -56,7 +54,14 @@ public interface EmpMapper {
             "ENTRYDATE BETWEEN #{begin} AND #{end} ORDER BY UPDATE_TIME DESC")
     public List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);*/
 
-    @Select("SELECT * FROM EMP WHERE NAME LIKE concat('%', #{name}, '%') AND GENDER = #{gender} AND " +
+   /*@Select("SELECT * FROM EMP WHERE NAME LIKE concat('%', #{name}, '%') AND GENDER = #{gender} AND " +
             "ENTRYDATE BETWEEN #{begin} AND #{end} ORDER BY UPDATE_TIME DESC")
+    public List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);*/
+
     public List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);
+
+    public void update2(Emp emp);
+
+    //批量删除员工
+    public void deleteByIds(List<Integer> ids);
 }

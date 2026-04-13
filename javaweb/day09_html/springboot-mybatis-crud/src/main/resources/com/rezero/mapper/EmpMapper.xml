@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rezero.mapper.EmpMapper">
+    <sql id="commonSelect">SELECT id, username, password, name, gender, image, job, entrydate, dept_id, create_time, update_time FROM EMP</sql>
+    <update id="update2">
+        UPDATE emp
+        <set>
+            <if test="username != null">USERNAME = #{username},</if>
+            <if test="name != null">NAME = #{name},</if>
+            <if test="gender != null">GENDER = #{gender},</if>
+            <if test="image != null">IMAGE = #{image},</if>
+            <if test="job != null">JOB = #{job},</if>
+            <if test="entrydate != null">ENTRYDATE = #{entrydate},</if>
+            <if test="deptId != null">DEPT_ID = #{deptId},</if>
+            <if test="updateTime != null">UPDATE_TIME = #{updateTime}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+
+    <!--resultType：单条记录所封装的类型-->
+    <!--    <select id="list" resultType="com.rezero.pojo.Emp">
+            SELECT * FROM EMP
+            WHERE NAME LIKE concat('%', #{name}, '%')
+            AND GENDER = #{gender}
+            AND ENTRYDATE BETWEEN #{begin} AND #{end}
+            ORDER BY UPDATE_TIME DESC
+        </select>-->
+
+    <select id="list" resultType="com.rezero.pojo.Emp">
+        <include refid="commonSelect"></include>
+        <where>
+            <if test="name != null">
+                NAME LIKE concat('%', #{name}, '%')
+            </if>
+            <if test="gender != null">
+                AND GENDER = #{gender}
+            </if>
+            <if test="begin != null and end != null">
+                AND ENTRYDATE BETWEEN #{begin} AND #{end}
+            </if>
+        </where>
+        ORDER BY UPDATE_TIME DESC
+    </select>
+
+    <!-- 批量删除员工 (16,17,18) -->
+    <!--
+        collection: 遍历的集合
+        item: 遍历出来的元素
+        separator: 分隔符
+        open: 遍历开始前拼接的SQL片段
+        close: 遍历结束后拼接的SQL片段
+    -->
+    <delete id="deleteByIds">
+        DELETE FROM EMP WHERE id IN
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
