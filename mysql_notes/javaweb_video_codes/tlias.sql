@@ -52,6 +52,49 @@ INSERT INTO emp
 SELECT * FROM DEPT D ;
 SELECT * FROM EMP E ;
 
+-- 分页查询语法
+-- 参数1: 起始索引 = (页码 - 1) * 每页展示记录数
+-- 参数2: 查询返回记录数 = 每页展示记录数
+select * from emp limit 0,5;
+
+-- 查询第一页数据,每页展示5条记录
+select * from emp limit 0,5;
+
+-- 查询第二页数据,每页展示5条记录
+select * from emp limit 5,5;
+
+-- 查询第三页数据,每页展示5条记录
+select * from emp limit 10,5;
+
+-- 条件查询员工 - 姓名、性别、入职时间
+SELECT
+	*
+FROM
+	emp
+WHERE
+	name LIKE concat('%', '张', '%')
+	AND gender = 1
+	AND entrydate BETWEEN '2000-01-01' AND '2010-01-01'
+ORDER BY
+	update_time DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
