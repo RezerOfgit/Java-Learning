@@ -28,4 +28,16 @@ public interface DeptService {
      * @param dept
      */
     void add(Dept dept);
+
+    /**
+     * 根据 ID 查询部门
+     * @return
+     */
+    Dept getById(Integer id);
+
+    /**
+     * 修改部门数据
+     * @param dept
+     */
+    void put(Dept dept);
 }
