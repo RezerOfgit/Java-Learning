@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rezero.mapper.EmpMapper">
+    <!--条件查询-->
+    <select id="list" resultType="com.rezero.pojo.Emp">
+        SELECT *
+        FROM emp
+        <where>
+            <if test="name != null and name != ''">
+                name LIKE concat('%', #{name}, '%')
+            </if>
+            <if test="gender != null">
+                AND gender = #{gender}
+            </if>
+            <if test="begin != null and end != null">
+                AND entrydate BETWEEN #{begin} AND #{end}
+            </if>
+        </where>
+        ORDER BY update_time DESC
+    </select>
+</mapper>

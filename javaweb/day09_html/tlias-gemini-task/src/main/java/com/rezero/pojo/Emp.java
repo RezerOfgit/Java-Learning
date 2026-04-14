@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 /**
  * @author Re-zero
  * @version 1.0
- * 员工实体类
  */
 @Data
 @NoArgsConstructor
