@@ -5,7 +5,7 @@ import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.common.auth.DefaultCredentialProvider;
 import com.aliyun.oss.common.comm.SignVersion;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,18 +20,21 @@ import java.util.UUID;
 @Component // 极其重要：必须加上这个注解，把它交给 Spring 容器管理！
 public class AliOSSUtils {
 
-    // 利用 Spring Boot 的 @Value 注解，自动从 application.properties 读取配置项
-    @Value("${aliyun.oss.endpoint}")
-    private String endpoint;
+//    // 利用 Spring Boot 的 @Value 注解，自动从 application.properties 读取配置项
+//    @Value("${aliyun.oss.endpoint}")
+//    private String endpoint;
+//
+//    @Value("${aliyun.oss.accessKeyId}")
+//    private String accessKeyId;
+//
+//    @Value("${aliyun.oss.accessKeySecret}")
+//    private String accessKeySecret;
+//
+//    @Value("${aliyun.oss.bucketName}")
+//    private String bucketName;
 
-    @Value("${aliyun.oss.accessKeyId}")
-    private String accessKeyId;
-
-    @Value("${aliyun.oss.accessKeySecret}")
-    private String accessKeySecret;
-
-    @Value("${aliyun.oss.bucketName}")
-    private String bucketName;
+    @Autowired
+    private AliOSSProperties aliOSSProperties;
 
     // V4 签名强制要求的地域标识 (你选的是上海，所以固定写这个即可)
     private String region = "cn-shanghai";
@@ -40,6 +43,12 @@ public class AliOSSUtils {
      * 实现上传图片到OSS
      */
     public String upload(MultipartFile file) throws IOException {
+
+        String endpoint = aliOSSProperties.getEndpoint();
+        String accessKeyId = aliOSSProperties.getAccessKeyId();
+        String accessKeySecret = aliOSSProperties.getAccessKeySecret();
+        String bucketName = aliOSSProperties.getBucketName();
+
         // 1. 获取上传的文件的输入流
         InputStream inputStream = file.getInputStream();
 
