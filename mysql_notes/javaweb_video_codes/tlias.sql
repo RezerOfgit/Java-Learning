@@ -81,7 +81,19 @@ ORDER BY
 -- 批量删除员工
 DELETE FROM EMP WHERE id IN (1, 2, 3);
 
-
+-- 更新员工
+update emp 
+SET 
+	username = 'Tom1',
+	password = '123456',
+	`name` = '汤姆1',
+	gender = 1,
+	image = '1.jpg',
+	job = 1,
+	entrydate = '2005-01-01',
+	dept_id = 1,
+	update_time = '2022-01-01 00:00:00'
+where id =1;
 
 
 
