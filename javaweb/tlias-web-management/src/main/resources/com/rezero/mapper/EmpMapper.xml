@@ -10,16 +10,16 @@
             <if test="username != null and username != ''">
                 username = #{username},
             </if>
-            <if test="password != null and username != ''">
+            <if test="password != null and password != ''">
                 password = #{password},
             </if>
-            <if test="name != null and username != ''">
+            <if test="name != null and name != ''">
                 `name` = #{name},
             </if>
             <if test="gender != null">
                 gender = #{gender},
             </if>
-            <if test="image != null and username != ''">
+            <if test="image != null and image != ''">
                 image = #{image},
             </if>
             <if test="job != null">
