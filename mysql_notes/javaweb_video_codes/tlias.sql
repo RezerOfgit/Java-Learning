@@ -78,6 +78,9 @@ WHERE
 ORDER BY
 	update_time DESC;
 
+-- 批量删除员工
+DELETE FROM EMP WHERE id IN (1, 2, 3);
+
 
 
 

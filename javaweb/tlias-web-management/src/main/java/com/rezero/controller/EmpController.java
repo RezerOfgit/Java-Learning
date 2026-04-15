@@ -1,5 +1,6 @@
 package com.rezero.controller;
 
+import com.rezero.pojo.Emp;
 import com.rezero.pojo.PageBean;
 import com.rezero.pojo.Result;
 import com.rezero.service.EmpService;
@@ -54,6 +55,13 @@ public class EmpController {
 
         log.info("批量删除操作, ids: {}", ids);
         empService.delete(ids);
+        return Result.success();
+    }
+
+    @PostMapping
+    public Result save(@RequestBody Emp emp) {
+        log.info("新增员工, emp: {}", emp);
+        empService.save(emp);
         return Result.success();
     }
 }
