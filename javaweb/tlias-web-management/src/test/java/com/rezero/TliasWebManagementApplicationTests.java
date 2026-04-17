@@ -1,16 +1,17 @@
 package com.rezero;
 
+import com.rezero.pojo.Dept;
+import com.rezero.service.DeptService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
-//@SpringBootTest
+@SpringBootTest
 class TliasWebManagementApplicationTests {
 
     @Test
@@ -52,5 +53,25 @@ class TliasWebManagementApplicationTests {
                 .parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidG9tIiwiaWQiOjEsImV4cCI6MTc3NjM1NzM1N30.nDdMm7a6k5l8EdC3DkPnkDINo3gJ5rwV3Ojvp_h4d2o")
                 .getBody();
         System.out.println(claims);
+    }
+
+    @Autowired
+    private DeptService deptService;
+
+    @Test
+    public void testAopDelete() throws Exception {
+        deptService.delete(10);
+    }
+
+    @Test
+    public void testAopList(){
+        List<Dept> list = deptService.list();
+        System.out.println(list);
+    }
+
+    @Test
+    public void testAopGetById(){
+        Dept dept = deptService.getById(1);
+        System.out.println(dept);
     }
 }

@@ -3,7 +3,6 @@ package com.rezero.aop;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,10 +11,11 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@Aspect //AOP类
+//@Aspect //AOP类
 public class TimeAspect {
 
-    @Around("execution(* com.rezero.service.*.*(..))") //切入点表达式
+//    @Around("execution(* com.rezero.service.*.*(..))") //切入点表达式
+    @Around("com.rezero.aop.MyAspect1.pt()")
     public Object recordTime(ProceedingJoinPoint joinPoint) throws Throwable {
         //1. 记录开始时间
         long begin = System.currentTimeMillis();

@@ -1,5 +1,6 @@
 package com.rezero.service.impl;
 
+import com.rezero.aop.MyLog;
 import com.rezero.mapper.DeptMapper;
 import com.rezero.mapper.EmpMapper;
 import com.rezero.pojo.Dept;
@@ -27,6 +28,7 @@ public class DeptServiceImpl implements DeptService {
     @Autowired
     private DeptLogService deptLogService;
 
+//    @MyLog
     @Override
     public List<Dept> list() {
         return deptMapper.list();
@@ -39,7 +41,7 @@ public class DeptServiceImpl implements DeptService {
         try {
             deptMapper.deleteById(id); //根据ID删除部门数据
 
-            int i = 1 / 0;
+//            int i = 1 / 0;
 
 //        if (true) throw new Exception("出错啦...");
 
@@ -58,5 +60,12 @@ public class DeptServiceImpl implements DeptService {
         dept.setUpdateTime(LocalDateTime.now());
 
         deptMapper.insert(dept);
+    }
+
+    @MyLog
+//    @LogAction
+    @Override
+    public Dept getById(Integer id) {
+        return deptMapper.getById(id);
     }
 }
