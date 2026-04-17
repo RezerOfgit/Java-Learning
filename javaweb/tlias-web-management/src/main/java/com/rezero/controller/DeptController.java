@@ -31,6 +31,12 @@ public class DeptController {
 //    @RequestMapping(value = "/depts", method = RequestMethod.GET) //指定请求方式为GET
     @GetMapping
     public Result list() {
+
+        /**
+         * 测试异常处理
+         */
+//        int i = 1 / 0;
+
         log.info("查询全部部门数据");
 
         //调用service查询部门数据
