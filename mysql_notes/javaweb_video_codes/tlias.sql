@@ -95,7 +95,9 @@ SET
 	update_time = '2022-01-01 00:00:00'
 where id =1;
 
-
+-- 登录
+SELECT * FROM EMP 
+		WHERE USERNAME = 'jinyong' AND PASSWORD = '123456';
 
 
 
