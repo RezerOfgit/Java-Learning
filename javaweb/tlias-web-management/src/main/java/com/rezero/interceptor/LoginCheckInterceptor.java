@@ -1,38 +1,37 @@
-package com.rezero.filter;
+package com.rezero.interceptor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rezero.pojo.Result;
 import com.rezero.utils.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @author Re-zero
  * @version 1.0
  */
 @Slf4j
-//@WebFilter(urlPatterns = "/*")
-public class LoginCheckFilter implements Filter {
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) request;
-        HttpServletResponse resp = (HttpServletResponse) response;
+@Component
+public class LoginCheckInterceptor implements HandlerInterceptor {
+    @Override //目标资源方法运行前运行, 返回true: 放行, 放回false, 不放行
+    public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler) throws Exception {
 
-        //1.获取请求url。
-        String url = req.getRequestURL().toString();
-        log.info("请求的url: {}",url);
-
-        //2.判断请求url中是否包含login，如果包含，说明是登录操作，放行。
-        if (url.contains("login")) {
-            log.info("登录操作, 放行...");
-            chain.doFilter(request, response);
-            return;
-        }
+//        //1.获取请求url。
+//        String url = req.getRequestURL().toString();
+//        log.info("请求的url: {}",url);
+//
+//        //2.判断请求url中是否包含login，如果包含，说明是登录操作，放行。
+//        if (url.contains("login")) {
+//            log.info("登录操作, 放行...");
+//            return true;
+//        }
 
         //3.获取请求头中的令牌（token）。
         String jwt = req.getHeader("token");
@@ -45,7 +44,7 @@ public class LoginCheckFilter implements Filter {
             resp.setContentType("application/json;charset=utf-8");
             String notLogin = new ObjectMapper().writeValueAsString(error);
             resp.getWriter().write(notLogin);
-            return;
+            return false;
         }
 
         //5.解析token，如果解析失败，返回错误结果（未登录）。
@@ -59,11 +58,21 @@ public class LoginCheckFilter implements Filter {
             resp.setContentType("application/json;charset=utf-8");
             String notLogin = new ObjectMapper().writeValueAsString(error);
             resp.getWriter().write(notLogin);
-            return;
+            return false;
         }
 
         //6.放行。
         log.info("令牌合法, 放行");
-        chain.doFilter(request, response);
+        return true;
+    }
+
+    @Override //目标资源方法运行后运行
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
+        System.out.println("postHandle...");
+    }
+
+    @Override //视图渲染完毕后运行, 最后运行
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
+        System.out.println("afterHandle...");
     }
 }
