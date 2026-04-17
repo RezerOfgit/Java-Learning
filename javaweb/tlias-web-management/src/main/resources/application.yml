@@ -25,3 +25,7 @@ aliyun:
     accessKeyId: ${OSS_ACCESS_KEY_ID}
     accessKeySecret: ${OSS_ACCESS_KEY_SECRET}
 
+#开启事务管理日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
