@@ -99,7 +99,13 @@ where id =1;
 SELECT * FROM EMP 
 		WHERE USERNAME = 'jinyong' AND PASSWORD = '123456';
 
+CREATE TABLE `dept_log`(
+	id int UNSIGNED PRIMARY KEY AUTO_INCREMENT comment 'ID',
+	creat_time datetime NOT NULL comment '创建时间',
+	`description` varchar(255) comment '问题描述'
+) comment '部门操作日志表';
 
+SELECT * FROM DEPT_LOG DL ;
 
 
 

@@ -3,6 +3,8 @@ package com.rezero.service.impl;
 import com.rezero.mapper.DeptMapper;
 import com.rezero.mapper.EmpMapper;
 import com.rezero.pojo.Dept;
+import com.rezero.pojo.DeptLog;
+import com.rezero.service.DeptLogService;
 import com.rezero.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,20 +24,32 @@ public class DeptServiceImpl implements DeptService {
     private DeptMapper deptMapper;
     @Autowired
     private EmpMapper empMapper;
+    @Autowired
+    private DeptLogService deptLogService;
 
     @Override
     public List<Dept> list() {
         return deptMapper.list();
     }
 
-    @Transactional //spring事务管理
+//    @Transactional(rollbackFor = Exception.class) //spring事务管理
+    @Transactional
     @Override
-    public void delete(Integer id) {
-        deptMapper.deleteById(id); //根据ID删除部门数据
+    public void delete(Integer id) throws Exception {
+        try {
+            deptMapper.deleteById(id); //根据ID删除部门数据
 
-        int i = 1 / 0;
+            int i = 1 / 0;
 
-        empMapper.deleteByDeptId(id); //根据部门ID删除该部门下的员工
+//        if (true) throw new Exception("出错啦...");
+
+            empMapper.deleteByDeptId(id); //根据部门ID删除该部门下的员工
+        } finally {
+            DeptLog deptLog = new DeptLog();
+            deptLog.setCreateTime(LocalDateTime.now());
+            deptLog.setDescription("执行了解散部门的操作,此次解散的是"+id+"号部门");
+            deptLogService.insert(deptLog);
+        }
     }
 
     @Override
