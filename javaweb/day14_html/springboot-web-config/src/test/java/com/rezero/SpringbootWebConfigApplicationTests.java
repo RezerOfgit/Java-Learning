@@ -79,4 +79,13 @@ class SpringbootWebConfigApplicationTests {
         System.out.println(bean3);
     }
 
+    @Test
+    public void testAutoConfiguration() {
+        int count = context.getBeanDefinitionCount();
+        System.out.println("Spring 容器中 Bean 的总数: " + count);// Spring 容器中 Bean 的总数: 181
+
+        Object dispatcherServlet = context.getBean("dispatcherServlet");
+        System.out.println(dispatcherServlet);// org.springframework.web.servlet.DispatcherServlet@aa752bb
+    }
+
 }
