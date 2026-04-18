@@ -76,6 +76,12 @@
             <version>2.1.3</version>
         </dependency>
 
+        <!--引入第三方提供的依赖-->
+        <dependency>
+            <groupId>com.rezero</groupId>
+            <artifactId>rezero-utils</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
