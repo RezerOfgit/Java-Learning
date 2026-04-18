@@ -1,5 +1,6 @@
 package com.rezero;
 
+import com.rezero.controller.DataExporter;
 import com.rezero.controller.DeptController;
 import org.dom4j.Document;
 import org.dom4j.Element;
@@ -64,4 +65,18 @@ class SpringbootWebConfigApplicationTests {
         Object saxReader = applicationContext.getBean("reader");
         System.out.println(saxReader);
     }
+
+    @Autowired
+    private ApplicationContext context;
+
+    @Test
+    public void testGetBeanGemini(){
+        DataExporter e1 = (DataExporter) context.getBean(DataExporter.class);
+        DataExporter e2 = (DataExporter) context.getBean(DataExporter.class);
+        System.out.println(e1 == e2);
+
+        Object bean3 = context.getBean("restTemplate");
+        System.out.println(bean3);
+    }
+
 }
