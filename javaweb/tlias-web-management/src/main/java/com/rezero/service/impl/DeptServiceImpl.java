@@ -1,6 +1,6 @@
 package com.rezero.service.impl;
 
-import com.rezero.aop.MyLog;
+import com.rezero.anno.MyLog;
 import com.rezero.mapper.DeptMapper;
 import com.rezero.mapper.EmpMapper;
 import com.rezero.pojo.Dept;

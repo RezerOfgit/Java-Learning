@@ -1,5 +1,6 @@
 package com.rezero.controller;
 
+import com.rezero.anno.Log;
 import com.rezero.pojo.Dept;
 import com.rezero.pojo.Result;
 import com.rezero.service.DeptService;
@@ -48,6 +49,7 @@ public class DeptController {
      * 删除部门
      * @return
      */
+    @Log
     @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id) throws Exception {
         log.info("根据id删除部门: {}", id); //{} 是代替id的
@@ -61,6 +63,7 @@ public class DeptController {
      * @param dept
      * @return
      */
+    @Log
     @PostMapping
     public Result add(@RequestBody Dept dept) {
         log.info("新增部门: {}", dept);

@@ -1,5 +1,6 @@
 package com.rezero.controller;
 
+import com.rezero.anno.Log;
 import com.rezero.pojo.Emp;
 import com.rezero.pojo.PageBean;
 import com.rezero.pojo.Result;
@@ -45,7 +46,7 @@ public class EmpController {
      */
 //    @DeleteMapping
 //    public Result delete(@PathVariable(required = false) List<Integer> ids) {
-
+    @Log
     @DeleteMapping("/{ids}")
     public Result delete(@PathVariable List<Integer> ids) {
         if (ids == null || ids.isEmpty()) {
@@ -58,6 +59,12 @@ public class EmpController {
         return Result.success();
     }
 
+    /**
+     * 新增员工
+     * @param emp
+     * @return
+     */
+    @Log
     @PostMapping
     public Result save(@RequestBody Emp emp) {
         log.info("新增员工, emp: {}", emp);
@@ -72,6 +79,12 @@ public class EmpController {
         return Result.success(emp);
     }
 
+    /**
+     * 更新员工
+     * @param emp
+     * @return
+     */
+    @Log
     @PutMapping
     public Result update(@RequestBody Emp emp) {
         log.info("更新员工信息 : {}", emp);

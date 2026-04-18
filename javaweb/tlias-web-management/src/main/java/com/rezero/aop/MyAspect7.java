@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class MyAspect7 {
     //匹配DeptServiceImpl中的 list() 和 delete(Integer id)方法
 //    @Pointcut("execution(* com.rezero.service.DeptService.list()) || execution(* com.rezero.service.DeptService.delete(java.lang.Integer))")
-    @Pointcut("@annotation(com.rezero.aop.MyLog)")
+    @Pointcut("@annotation(com.rezero.anno.MyLog)")
     private void pt(){}
 
     @Before("pt()")
