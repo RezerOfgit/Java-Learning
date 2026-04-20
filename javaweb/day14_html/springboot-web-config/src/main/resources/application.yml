@@ -25,4 +25,5 @@ logging:
   level:
     org.springframework.jdbc.support.JdbcTransactionManager: debug
 
+#@ConditionalOnProperty(name = "name", havingValue = "rezero") //配置文件中存在指定的属性与值，才会将该bean加入IOC容器中
 name: rezero
