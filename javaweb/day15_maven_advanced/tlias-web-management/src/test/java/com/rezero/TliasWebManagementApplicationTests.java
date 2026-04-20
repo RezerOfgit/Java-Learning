@@ -50,7 +50,7 @@ class TliasWebManagementApplicationTests {
     public void testParseJwt(){
         Claims claims = Jwts.parser()
                 .setSigningKey("rezero")
-                .parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidG9tIiwiaWQiOjEsImV4cCI6MTc3NjM1NzM1N30.nDdMm7a6k5l8EdC3DkPnkDINo3gJ5rwV3Ojvp_h4d2o")
+                .parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidG9tIiwiaWQiOjEsImV4cCI6MTc3NjY3ODMxN30.yU1RuVMhKW3MRTESjAI-vTKd8sucXWC9YeCNUpvLIqM")
                 .getBody();
         System.out.println(claims);
     }
