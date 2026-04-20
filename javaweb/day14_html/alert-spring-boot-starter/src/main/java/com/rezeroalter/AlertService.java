@@ -5,7 +5,7 @@ package com.rezeroalter;
  * @version 1.0
  */
 public class AlertService {
-    private final AlertProperties properties;
+    private AlertProperties properties;
 
     public AlertService(AlertProperties properties) {
         this.properties = properties;

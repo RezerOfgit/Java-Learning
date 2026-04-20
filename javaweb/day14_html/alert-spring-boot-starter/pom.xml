@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.rezeroalter</groupId>
-    <artifactId>spring-boot-starter</artifactId>
+    <artifactId>alert-spring-boot-starter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-starter</name>
     <description>spring-boot-starter</description>

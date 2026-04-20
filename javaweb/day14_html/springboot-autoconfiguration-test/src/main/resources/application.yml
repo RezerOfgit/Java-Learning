@@ -5,3 +5,9 @@ aliyun:
     bucketName: web-tlias-rezero
     accessKeyId: ${OSS_ACCESS_KEY_ID}
     accessKeySecret: ${OSS_ACCESS_KEY_SECRET}
+
+#alert-spring-boot-starter联调测试
+alert:
+  robot:
+    name: "钉钉"
+    token: "abc-123456"
