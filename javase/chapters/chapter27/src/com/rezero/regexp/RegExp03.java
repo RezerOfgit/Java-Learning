@@ -29,7 +29,7 @@ public class RegExp03 {
         //\\S 匹配任何非空白字符,和\\s 刚好相反
 //        String regStr = "\\S";
         //. 匹配出\n 之外的所有字符,如果要匹配.本身则需要使用\\.
-        String regStr = ".";
+        String regStr = "";
 
         //说明
         //1. 当创建Pattern 对象时，指定Pattern.CASE_INSENSITIVE, 表示匹配是不区分字母大小写.
