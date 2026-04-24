@@ -1,5 +1,6 @@
 package com.rezero.test;
 
+import com.rezero.jedis.util.JedisConnectionFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,8 @@ public class JedisTest {
     @BeforeEach
     void setUp() {
         //1. 建立连接
-        jedis = new Jedis("127.0.0.1", 6379);
+//        jedis = new Jedis("127.0.0.1", 6379);
+        jedis = JedisConnectionFactory.getJedis();
         //2. 设置密码, 没有密码，直接跳过 auth
 //        jedis.auth();
         //3. 选择库
