@@ -3,6 +3,7 @@ package com.gemini.day01;
 import java.util.Scanner;
 
 /**
+ * 2. 不知道有多少行输入（以 EOF 结束）
  * @author Re-zero
  * @version 1.0
  */

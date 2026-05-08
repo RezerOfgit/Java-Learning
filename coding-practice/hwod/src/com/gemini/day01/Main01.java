@@ -3,6 +3,7 @@ package com.gemini.day01;
 import java.util.Scanner;
 
 /**
+ * 1. 坑点最多的：读完数字紧接着读字符串
  * @author Re-zero
  * @version 1.0
  */
@@ -13,7 +14,7 @@ public class Main01 {
         // 3
         // A B C
         int n = in.nextInt();
-        in.nextLine(); // ⚠️ 致命防坑：nextInt() 不会读取换行符，必须手动多写一行 nextLine() 吃掉回车！
+        in.nextLine(); // 致命防坑：nextInt() 不会读取换行符，必须手动多写一行 nextLine() 吃掉回车！
 
         String str = in.nextLine();
         String[] arr = str.split(" ");

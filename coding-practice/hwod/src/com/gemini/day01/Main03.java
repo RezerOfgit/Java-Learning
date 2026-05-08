@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
+ * 3. 逗号分隔的动态数组（极其高频）
  * @author Re-zero
  * @version 1.0
  */
