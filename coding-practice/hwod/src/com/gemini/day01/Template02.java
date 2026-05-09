@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author Re-zero
  * @version 1.0
  */
-public class Main02 {
+public class Template02 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         // 只要还有下一行，就一直读。遇到空行或者直接结束符才停止。

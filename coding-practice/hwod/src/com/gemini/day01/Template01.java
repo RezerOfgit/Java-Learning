@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author Re-zero
  * @version 1.0
  */
-public class Main01 {
+public class Template01 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         // 假设输入：

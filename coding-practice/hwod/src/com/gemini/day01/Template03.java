@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author Re-zero
  * @version 1.0
  */
-public class Main03 {
+public class Template03 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         // 输入格式：1,2,3,4,5
