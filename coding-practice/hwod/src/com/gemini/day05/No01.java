@@ -12,7 +12,7 @@ import java.util.List;
  * 输入： [[1,4], [2,5], [7,9], [14,18]]
  * 输出： [[1,5], [7,9], [14,18]] （解释：[1,4] 和 [2,5] 有重叠，合并为 [1,5]）
  */
-public class Template01 {
+public class No01 {
     public static void main(String[] args) {
         // --- 假设从控制台读入了二维数组 intervals ---
         int[][] intervals = {
