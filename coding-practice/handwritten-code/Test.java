@@ -1,52 +1,37 @@
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * @author Re-zero
  * @version 1.0
  */
 public class Test {
-    private static final Queue<Integer> queue = new LinkedList<>();
-    private static final int MAX_SIZE = 10;
+    private static final Object lockA = new Object();
+    private final static Object lockB = new Object();
 
-    public static void main (String[] args) {
-        //生产者
-        Thread producer = new Thread(() -> {
-            while (true) {
-                synchronized (queue) {
-                    while (queue.size() == MAX_SIZE) {
-                        try {
-                            queue.wait();
-                        } catch (InterruptedException e) {
-                            break;
-                        }
-                    }
-                    queue.add(1);
-                    System.out.println("生产，当前库存：" + queue.size());
-                    queue.notifyAll();
+    public static void main(String[] args) {
+        Thread t1 = new Thread(() -> {
+            synchronized (lockA) {
+                System.out.println("t1 持有 lockA，等待 lockB");
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {}
+                synchronized (lockB) {
+                    System.out.println("t1 持有 lockA 和 lockB");
                 }
             }
         });
 
-        //消费者
-        Thread consumer = new Thread(() -> {
-            while (true) {
-                synchronized (queue) {
-                    while (queue.isEmpty()) {
-                        try {
-                            queue.wait();
-                        } catch (InterruptedException e) {
-                            break;
-                        }
-                    }
-                    queue.poll();
-                    System.out.println("消费，当前库存：" + queue.size());
-                    queue.notifyAll();
+        Thread t2 = new Thread(() -> {
+            synchronized (lockB) {
+                System.out.println("t2 持有 lockB，等待 lockA");
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {}
+                synchronized (lockA) {
+                    System.out.println("t2 持有 lockB 和 lockA");
                 }
             }
         });
 
-        producer.start();
-        consumer.start();
+        t1.start();
+        t2.start();
     }
 }
