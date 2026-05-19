@@ -1,0 +1,48 @@
+-- 耗材表
+CREATE TABLE material (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    category_id BIGINT,
+    specification VARCHAR(200),
+    unit VARCHAR(20),
+    stock INT DEFAULT 0,
+    version INT DEFAULT 0,
+    is_deleted TINYINT DEFAULT 0,
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 领用记录表
+CREATE TABLE record (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    material_id BIGINT NOT NULL,
+    applicant VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
+    status TINYINT DEFAULT 0 COMMENT '0待审批 1通过 2驳回',
+    remark VARCHAR(500),
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 用户表
+CREATE TABLE user (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(200) NOT NULL,
+    role_id BIGINT,
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 角色表
+CREATE TABLE role (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    role_name VARCHAR(50) NOT NULL,
+    description VARCHAR(200)
+);
+
+-- 角色权限关联表
+CREATE TABLE role_permission (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    role_id BIGINT NOT NULL,
+    permission_id BIGINT NOT NULL
+);
