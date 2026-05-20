@@ -72,7 +72,7 @@ SELECT name, stock
 FROM material
 WHERE stock < 10 AND is_deleted = 0;
 
--- 第 3 项：子查询（15min）
+-- 第 3 项：子查询
 -- 题目 1：查询领用量最大的那条记录（显示耗材名称、申请人、数量）
 SELECT m.name, r.applicant, r.quantity
 FROM record r
@@ -83,6 +83,22 @@ SELECT name, stock
 FROM material
 WHERE id NOT IN (SELECT DISTINCT material_id FROM record)
   AND is_deleted = 0;
+
+-- 第 4 项：窗口函数
+-- 题目 1：查询每个申请人最近一次领用记录
+SELECT applicant, material_id, quantity, create_time
+FROM (
+    SELECT *, ROW_NUMBER() OVER (PARTITION BY applicant ORDER BY create_time DESC) AS rn
+    FROM record
+) t
+WHERE rn = 1;
+-- 题目 2：给领用记录按时间排序编号
+SELECT id, applicant, quantity,
+       ROW_NUMBER() OVER (ORDER BY create_time DESC) AS rank_num
+FROM record;
+-- 记住窗口函数的骨架：
+-- ROW_NUMBER() OVER (PARTITION BY 分组字段 ORDER BY 排序字段)
+
 
 
 
