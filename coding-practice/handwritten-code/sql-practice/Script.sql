@@ -72,6 +72,17 @@ SELECT name, stock
 FROM material
 WHERE stock < 10 AND is_deleted = 0;
 
+-- 第 3 项：子查询（15min）
+-- 题目 1：查询领用量最大的那条记录（显示耗材名称、申请人、数量）
+SELECT m.name, r.applicant, r.quantity
+FROM record r
+JOIN material m ON r.material_id = m.id
+WHERE r.quantity = (SELECT MAX(quantity) FROM record);
+-- 题目 2：查询从未有人领用过的耗材
+SELECT name, stock
+FROM material
+WHERE id NOT IN (SELECT DISTINCT material_id FROM record)
+  AND is_deleted = 0;
 
 
 
