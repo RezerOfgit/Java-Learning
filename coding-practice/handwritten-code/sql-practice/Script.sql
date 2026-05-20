@@ -46,3 +46,62 @@ CREATE TABLE role_permission (
     role_id BIGINT NOT NULL,
     permission_id BIGINT NOT NULL
 );
+
+
+-- 第 2 项：多表联查
+-- 题目 1：查询所有待审批的领用记录，显示耗材名称和申请人
+SELECT r.id, m.name, r.applicant, r.quantity, r.create_time
+FROM record r
+JOIN material m ON r.material_id = m.id
+WHERE r.status = 0
+ORDER BY r.create_time DESC;
+-- 题目 2：查询每种耗材的总领用量，按领用量从高到低排序
+SELECT m.name, SUM(r.quantity) AS total_quantity
+FROM record r
+JOIN material m ON r.material_id = m.id
+GROUP BY m.name
+ORDER BY total_quantity DESC;
+-- 题目 3：查询每个申请人的领用次数，只显示领用超过 3 次的人
+SELECT applicant, COUNT(*) AS apply_count
+FROM record
+GROUP BY applicant
+HAVING apply_count > 3
+ORDER BY apply_count DESC;
+-- 题目 4：查询库存低于 10 的耗材名称和库存
+SELECT name, stock
+FROM material
+WHERE stock < 10 AND is_deleted = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
