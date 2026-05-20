@@ -99,7 +99,23 @@ FROM record;
 -- 记住窗口函数的骨架：
 -- ROW_NUMBER() OVER (PARTITION BY 分组字段 ORDER BY 排序字段)
 
+-- 第 5 项：事务场景
+-- 手写：扣减库存 + 插入领用记录的事务 SQL
+START TRANSACTION;
 
+-- 1. 扣减库存（原子扣减，和项目一致）
+UPDATE material
+SET stock = stock - 2, version = version + 1
+WHERE id = 1 AND stock >= 2;
+
+-- 2. 判断是否扣减成功（通过 ROW_COUNT()）
+-- 如果返回 0 行，说明库存不足，执行 ROLLBACK
+
+-- 3. 插入领用记录
+INSERT INTO record (material_id, applicant, quantity, remark, status)
+VALUES (1, 'test01', 2, '日常领用', 0);
+
+COMMIT;
 
 
 
