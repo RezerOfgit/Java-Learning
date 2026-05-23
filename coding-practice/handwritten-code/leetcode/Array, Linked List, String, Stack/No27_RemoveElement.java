@@ -5,7 +5,7 @@
  * 不要使用额外的数组空间，必须仅使用 O(1) 额外空间并原地修改输入数组。
  * 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
  */
-public class RemoveElement {
+public class No27_RemoveElement {
     public int removeElement(int[] nums, int val) {
         if (nums.length == 0) {
             return 0;

@@ -4,7 +4,7 @@
  * 请在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。
  * 假设每种输入只会对应一个答案，且同一个元素不能使用两遍。
  */
-public class TwoSum {
+public class No01_TwoSum {
     public int[] twoSum(int[] nums, int target) {
         // key: 元素值, value: 元素下标
         Map<Integer, Integer> map = new HashMap<>();

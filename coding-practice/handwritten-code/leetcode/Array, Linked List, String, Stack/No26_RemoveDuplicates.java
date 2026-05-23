@@ -4,7 +4,7 @@
  * 使每个元素只出现一次，返回移除后数组的新长度。
  * 不要使用额外的数组空间，必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
  */
-public class RemoveDuplicates {
+public class No26_RemoveDuplicates {
     public int removeDuplicates(int[] nums) {
         if (nums.length == 0) {
             return 0;
