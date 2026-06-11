@@ -1,6 +1,7 @@
 //双重校验锁单例
 //声明volatile→私有构造→方法→外层if→锁→内层if→new→返回
 public class Singleton{
+
 	private static volatile Singleton instance;
 
 	private Singleton() {}
